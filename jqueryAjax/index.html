@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
@@ -23,16 +24,16 @@
             <a class="nav-link disabled">Disabled</a>
         </nav>
         <div class="form-group">
-            <label for="nev">Név</label>
-            <input type="text" class="form-control" id="nev" placeholder="A teljes neve">
+            <label for="name">Név</label>
+            <input type="text" class="form-control" id="name" placeholder="A teljes neve">
         </div>
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" id="email" placeholder="name@example.com">
         </div>
         <div class="form-group">
-            <label for="felhasznalonev">Felhasználónév</label>
-            <input type="text" class="form-control" id="felhasznalonev">
+            <label for="interest">Felhasználónév</label>
+            <input type="text" class="form-control" id="interest">
         </div>
         <div class="form-group row">
             <div class="col-6">
@@ -45,10 +46,10 @@
             </div>
         </div>
         <div class="d-flex justify-content-evenly m-5">
-            <button type="submit" class="btn btn-outline-primary">Create</button>
-            <button type="submit" class="btn btn-outline-success">Read</button>
-            <button type="submit" class="btn btn-outline-warning">Update</button>
-            <button type="submit" class="btn btn-outline-danger">Delete</button>
+            <button type="submit" class="btn btn-outline-primary" id="create">Create</button>
+            <button type="submit" class="btn btn-outline-success" id="read">Read</button>
+            <button type="submit" class="btn btn-outline-warning" id="update">Update</button>
+            <button type="submit" class="btn btn-outline-danger" id="delete">Delete</button>
         </div>
     </div>
     <div id="kartyak">

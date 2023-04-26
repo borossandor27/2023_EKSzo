@@ -9,6 +9,7 @@ https://gitforwindows.org/
 - git init
 - git status
 - git add .
+- git reset HEAD example.html //Unstage a File
 - git commit -m "1.0"
 - git commit -am "szoveg - a változás oka"
 - git add --patch
