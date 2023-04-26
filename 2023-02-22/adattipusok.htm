@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adattipusok</title>
+</head>
+
+<body>
+    <form>
+        <p><input type="number" placeholder="Kérek egy számot!" id="a"></p>
+        <p><input type="number" placeholder="Kérek egy másik számot" id="b"></p>
+        <p><input type="button" value="Számolj!" onclick="szamol()"></p>
+        <p>A két szám szorzata <span id="szorzat"></span>, hányadosa <span id="hanyados"></span></p>
+        <p>A két szám összege <span id="osszeg"></span>, különbsége <span id="kulonbseg"></span></p>
+    </form>
+    <script>
+        const aInput = document.getElementById("a");
+        const bInput = document.getElementById("b");
+
+        function szamol() {
+            let aText = aInput.value;
+            let bText = bInput.value;
+            let a = parseFloat(aText);
+            let b = parseFloat(bText);
+            document.getElementById("szorzat").innerHTML = a * b;
+            document.getElementById("hanyados").innerHTML = a / b;
+            document.getElementById("osszeg").innerHTML = a + b;
+            document.getElementById("kulonbseg").innerHTML = aText - bText;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+html, body {
+    font-size: 3vw;
+}
+#virag {
+    float: right;
+    height: 35vh;
+}
+
+#virag:hover {
+    height: 77vh;
+}
