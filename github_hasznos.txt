@@ -1,0 +1,20 @@
+https://git-scm.com/ 
+vagy
+https://gitforwindows.org/
+
+- git --version
+- git config --global --list
+- git config --global user.name "FIRST_NAME LAST_NAME"
+- git config --global user.email "MY_NAME@example.com"
+- git init
+- git status
+- git add .
+- git commit -m "1.0"
+- git commit -am "szoveg - a változás oka"
+- git add --patch
+- git log --pretty=oneline
+- gitk
+- git checkout
+- git checkout -b "korabbi-allapot"
+- git merge "masik branch"
+- git rebase
