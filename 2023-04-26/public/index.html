@@ -2,28 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Menhely</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.min.css" integrity="sha512-JQksK36WdRekVrvdxNyV3B0Q1huqbTkIQNbz1dlcFVgNynEMRl0F8OSqOGdVppLUDIvsOejhr/W5L3G/b3J+8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>menhely adatok</h1>
-    <form>
-        <fieldset>
-            <legend>Adatok</legend>
-            <input type="text" id="allatid" placeholder="" readonly>
-            <input type="text" id="nev" placeholder="Az állat neve">
-            <input type="text" id="fajta" placeholder="állatfaj">
-        </fieldset>
-        <button type="button" id="insert">Új</button>
-        <button type="button" id="update">Módosít</button>
-        <button type="button" id="readall">Kilistáz</button>
-        <button type="button" id="delete">Töröl</button>
+  <h1>Menhely adatok</h1>
+  <form>
+    <fieldset>
+      <legend>Adatok</legend>
+      <div>
 
-    </form>
-    <script src="main.js"></script>
+        <input type="hidden" name="allatid" id="allatid" autocomplete="off" required>
+
+
+        <div class="form">
+          <input type="text" name="nev" id="nev" autocomplete="off" required>
+          <label for="text" class="label-name">
+            <span class="content-name">
+              Az állat neve
+            </span>
+          </label>
+        </div>
+        <div class="form">
+          <input type="text" name="allatfaj" id="allatfaj" autocomplete="off" required>
+          <label for="text" class="label-name">
+            <span class="content-name">
+              Állatfaj
+            </span>
+          </label>
+        </div>
+    </fieldset>
+    <button type="button" id="insert">Új</button>
+    <button type="button" id="update">Módosít</button>
+    <button type="button" id="readall">Kilistáz</button>
+    <button type="button" id="delete">Töröl</button>
+
+  </form>
+  <div id="allatok">
+    
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>

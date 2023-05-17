@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+app.use(cors());
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 const bodyParser = require('body-parser');
@@ -53,7 +55,7 @@ app.get('/allatAll', function (req, res) {
     let sql = 'SELECT * FROM `allatok`';
     connection.query(sql, function (err, rows) {
         res.send(rows);
-    })
+    });
     console.log('Összes állat')
 })
 
