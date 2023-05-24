@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: false }));
 const bodyParser = require('body-parser');
 
 const mysql = require('mysql');
-const { Console } = require('console');
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
