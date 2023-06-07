@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+body  {
+    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+
+}
+
+
+.center
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(75, 75, 250, 0.3);
+  border-radius: 3px;
+}
+.center form{
+  text-align:center;
+  color:white;
+  font-family: 'Source Code Pro', monospace;
+  text-transform:uppercase;
+}
+
+h1{
+    text-align: center;
+}
+
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.inp-border {
+  padding: 5px;
+
+  margin: 2vh 1vh;
+  border-radius: 67px;
+  max-width: 200px;
+  
+}
+input {
+  font-size: 17px;
+}
+.input {
+  text-align: center;
+  padding: 15px;
+  outline: none;
+  border: double 0;
+  background: #252525;
+  border-radius: 67px;
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+}
+
+#a1{
+  width: 5vw;
+}
+.a2 {
+  background: linear-gradient(
+    330.28deg,
+    #2cfff2 100%,
+    #2cfff2 100%,
+    #2cfff2 100%
+  );
+}
+.a2 > input {
+  color: #2cfff2;
+}
+.a2 > input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #2cfff2;
+  opacity: 0.6; /* Firefox */
+}
+
+.inp-border:focus-within {
+  background: linear-gradient(
+    330.28deg,
+    #2cfff2 0%,
+    #1e78ff 30.73%,
+    #ff54a6 55.73%,
+    #ff6e1d 79.17%,
+    #ff3e3e 100%
+  );
+}
+.inp-border:hover {
+  background: linear-gradient(
+    330.28deg,
+    #2cfff2 0%,
+    #1e78ff 30.73%,
+    #ff54a6 55.73%,
+    #ff6e1d 79.17%,
+    #ff3e3e 100%
+  );
+}
+
+:root {
+  --accent: #04da97;
+  --border-width: 6px;
+  --border-radius: 55px;
+  --font-size: 30px;
+}
+
+.radio {
+	background: #454857;
+	padding: 4px;
+	border-radius: 3px;
+	box-shadow: inset 0 0 0 3px rgba(35, 33, 45, 0.3),
+		0 0 0 3px rgba(185, 185, 185, 0.3);
+	position: relative;
+  
+}
+
+.radio input {
+	width: auto;
+	height: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 2px;
+	padding: 4px 8px;
+	background: #454857;
+	color: #bdbdbdbd;
+	font-size: 14px;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	transition: all 100ms linear;
+}
+
+.radio input:checked {
+	background-image: linear-gradient(180deg, #95d891, #74bbad);
+	color: #fff;
+	box-shadow: 0 1px 1px #0000002e;
+	text-shadow: 0 1px 0px #79485f7a;
+}
+
+.radio input:before {
+	content: attr(label);
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+.box {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box select {
+  background-color: #1e78ff;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box::before {
+  content: "\f13a";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
+.ev{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+#szam{
+  width: 5vw;
+}
+
+.ber{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+#osszeg{
+  width: 5vw;
+}

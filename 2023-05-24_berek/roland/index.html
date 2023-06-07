@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bérek</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Bérek</h1>
+    <div class="center">
+
+        <form action="">
+            <div class="inp-border a2" id="a1">
+                <input class="input" type="text" name="name1" placeholder="ID">
+            </div>
+            <div class="inp-border a2">
+                <input class="input" type="text" name="name1" placeholder="Dolgozó neve">
+            </div>
+
+            <div class="radio">
+                <input label="Férfi" type="radio" id="male" name="gender" value="male" checked>
+                <input label="Nő" type="radio" id="female" name="gender" value="female">
+            </div>
+            <div class="box">
+                <select>
+                    <option selected>Részleg</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+
+                </select>
+            </div>
+            <div class="ev">
+                <h3>Belépés éve</h3>
+                <input id="szam" type="number" min="1900" step="5" value="2000">
+              </div>
+              <div class="ber">
+                <h3>Havi alapbér</h3>
+                <input id="osszeg" type="number" min="150000" step="10000" value="200000">
+              </div>
+        </form>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>

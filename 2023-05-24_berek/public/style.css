@@ -1,0 +1,7 @@
+body {
+    background-color: bisque;
+}
+input:hover {
+background-color: burlywood;
+border-color: lightgoldenrodyellow;
+}
