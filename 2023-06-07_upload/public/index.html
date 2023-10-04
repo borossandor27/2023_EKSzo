@@ -18,14 +18,14 @@
     <div class="container">
         <form action="http://127.0.0.1:3000/upload/" enctype="multipart/form-data" method="post">
             <div class="form-group m-3">
-                <input type="text" placeholder="leírás a fájlhoz" class="form-control" id="description">
+                <input type="text" placeholder="leírás a fájlhoz" class="form-control" id="description" name="description">
             </div>
             <div class="m-3">
                 <label for="brandLogo" class="form-label">Feltöltendő fájl</label>
                 <input class="form-control" type="file" accept="image/*" id="brandLogo" name="brandLogo">
             </div>
             <div class="m-3">
-                <input id="submit" type="submit" class="btn btn-black" value="Upload">
+                <input id="submit" type="submit" class="btn btn-black" value="Upload" id="submit">
             </div>
         </form>
     </div>

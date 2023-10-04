@@ -46,19 +46,19 @@ app.get("/", (req, res) => {
 
 //@type   POST
 //route for post data
-app.post("/upload", upload.single("brandLogo"), (req, res) => {
-  console.log(req);
-  console.log();
+app.post("/upload", (req, res) => {
+  console.log(`body: ${req.body}`);
+  console.log(`file: ${req.file}`);
   if (!req.file) {
     console.log("No file upload");
   } else {
-    console.log(req.file.filename);
     var imgsrc =
       "/upload/" + req.file.filename + "." + mime.extension(req.file.mimetype);
     var insertData = `INSERT INTO images(imagesid, description, filename) VALUES (NULL, ?, ?)`;
+    values = [req.body.description, imgsrc]; 
     connection.query(
       insertData,
-      [req.body.description, imgsrc],
+      values,
       (err, result) => {
         if (err) throw err;
         console.log("file uploaded");
