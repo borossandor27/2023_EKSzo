@@ -25,6 +25,25 @@ app.get('/api/books', function(req, res) {
             res.end();
         }
     });
+});
+
+app.post('/api/books', function(req, res) {
+    if (Number.parseInt(req.body.publish_year)>0 && Number.parseInt(req.body.page_count)>0 && req.body.author.toString().trim().length>0 && req.body.title.toString().trim().length>0) {
+        let values = [req.body.title, req.body.author, req.body.publish_year, req.body.page_count];
+        let sql="INSERT INTO `books`(`id`, `title`, `author`, `publish_year`, `page_count`) VALUES (NULL,?,?,?,?)"
+        connection.query(sql,values, function (err,rows) {
+            if(err){
+                res.status(201);
+                res.send();
+            } else {
+                res.send(rows);
+            }      
+        })
+            
+    } else {
+        res.status(401);
+        res.send();
+    }
 })
 
 app.listen(3000, function () {
