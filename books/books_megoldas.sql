@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 10, 2022 at 03:19 PM
--- Server version: 10.5.4-MariaDB
--- PHP Version: 7.3.18
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2023. Okt 25. 18:12
+-- Kiszolgáló verziója: 10.4.28-MariaDB
+-- PHP verzió: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,20 +18,38 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `vizsga-2022-14s-wip-db`
+-- Adatbázis: `vizsga_books`
 --
-CREATE Database vizsga_books;
-USE vizsga_books;
+CREATE DATABASE IF NOT EXISTS `vizsga_books` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `vizsga_books`;
+
+DELIMITER $$
+--
+-- Eljárások
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `rentalsFeltolt` (IN `db` INT)  MODIFIES SQL DATA BEGIN
+DECLARE tol date;
+DECLARE ig date;
+DECLARE nap int;
+DECLARE i int DEFAULT 0;
+ismetles:WHILE i<db DO
+	INSERT INTO `rentals`(`id`, `book_id`, `start_date`,`end_date`) VALUES (NULL,FLOOR(RAND()*(SELECT COUNT(*) FROM books))+1,CURRENT_DATE - INTERVAL FLOOR(RAND() * 50) DAY,`start_date`+INTERVAL 14 DAY);
+    SET i=i+1;
+END WHILE ismetles;
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `books`
+-- Tábla szerkezet ehhez a táblához `books`
 --
 
 CREATE TABLE `books` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `author` varchar(255) NOT NULL,
   `publish_year` int(11) NOT NULL,
   `page_count` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -39,7 +57,7 @@ CREATE TABLE `books` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `books`
+-- A tábla adatainak kiíratása `books`
 --
 
 INSERT INTO `books` (`id`, `title`, `author`, `publish_year`, `page_count`, `created_at`, `updated_at`) VALUES
@@ -94,25 +112,72 @@ INSERT INTO `books` (`id`, `title`, `author`, `publish_year`, `page_count`, `cre
 (49, 'Nihil Nisi Atque Voluptate Dolor', 'Dr. Judah Armstrong IV', 1928, 610, '2022-03-10 14:18:07', '2022-03-10 14:18:07'),
 (50, 'Odio Itaque', 'Asha Kreiger', 2006, 283, '2022-03-10 14:18:07', '2022-03-10 14:18:07');
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Tábla szerkezet ehhez a táblához `rentals`
+--
+
+CREATE TABLE `rentals` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `book_id` bigint(20) UNSIGNED NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `rentals`
+--
+
+INSERT INTO `rentals` (`id`, `book_id`, `start_date`, `end_date`) VALUES
+(1, 49, '2023-10-01', '2023-10-15'),
+(2, 26, '2023-10-20', '2023-11-03'),
+(3, 2, '2023-09-13', '2023-09-27'),
+(4, 5, '2023-09-09', '2023-09-23'),
+(5, 17, '2023-09-09', '2023-09-23');
+
+--
+-- Indexek a kiírt táblákhoz
 --
 
 --
--- Indexes for table `books`
+-- A tábla indexei `books`
 --
 ALTER TABLE `books`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- A tábla indexei `rentals`
+--
+ALTER TABLE `rentals`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_rentals_books` (`book_id`);
+
+--
+-- A kiírt táblák AUTO_INCREMENT értéke
 --
 
 --
--- AUTO_INCREMENT for table `books`
+-- AUTO_INCREMENT a táblához `books`
 --
 ALTER TABLE `books`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT a táblához `rentals`
+--
+ALTER TABLE `rentals`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Megkötések a kiírt táblákhoz
+--
+
+--
+-- Megkötések a táblához `rentals`
+--
+ALTER TABLE `rentals`
+  ADD CONSTRAINT `fk_rentals_books` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
