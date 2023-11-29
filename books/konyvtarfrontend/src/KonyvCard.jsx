@@ -1,20 +1,34 @@
-import React {Component} from "react";
+import React, { Component } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 class KonyvCard extends Component {
-  render() {
-    return (
-      <div className="card">
-        <div className="card-header">
-          <h5 className="card-title">Könyv címe</h5>
-        </div>
-        <div className="card-body">
-          <p className="card-text">Könyv szerzője</p>
-          <p className="card-text">Könyv kiadója</p>
-          <p className="card-text">Könyv ára</p>
-          <p className="card-text">Könyv műfaja</p>
-          <p className="card-text">Könyv ISBN száma</p>
-          <p className="card-text">Könyv kiadásának éve</p>
-        </div>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            books: []
+        };
+    }
+    componentDidMount() {
+        this.listBooks();
+    }
+    listBooks() {
+        fetch("http://localhost:7500/api/books")
+            .then(async response => {
+                if (response.statusCode === 200) {
+                    const data = await response.json();
+                    this.setState({
+                        books: data.data
+                    });
+                }
+            });
+    }
+
+    render() {
+        console.log(this.state);
+        return (
+            <div className="card col-sm-12 col-md-6 col-lg-4" >
+                <div className="card-body">
+                </div>
+            </div>
+        );
+    }
 }

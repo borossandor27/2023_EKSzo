@@ -19,7 +19,7 @@ class App extends Component {
           <h1>Könyvtár</h1>
         </header>
         <main>
-          <section></section>
+          <section className="row"></section>
           <section id='konyvform'></section>
         </main>
         <footer></footer>
