@@ -115,6 +115,7 @@ app.post('/api/books/:id/rent', function(req, res) {
     });
 });
 
-app.listen(3000, function () {
-    console.log("szerver a 3000-es porton");
-})
+port=7500;
+app.listen(port, function () {
+    console.log(`szerver a ${port}-es porton`);
+});
