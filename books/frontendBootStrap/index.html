@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beregszászi Könyvtár</title>
+  <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="books.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1><img id="logo" src="cimer.webp">Beregszaszi Könyvtár</h1>
+
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="#ujkonyv">Új könyvtár felvétele</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.dszcberegszaszi.hu">Beregszászi honlap </a>
+        </li>
+
+      </ul>
+    </header>
+
+    <main>
+      <section id="cards" class="row">
+
+      </section>
+
+      <section id="ujkonyv">
+        <form method="POST" action="#">
+          <div>
+            <label for="title">A könyv címe</label>
+            <input type="text" id="title" name="title" placeholder="A könyv címe.." class="form-control">
+          </div>
+          <div>
+            <label for="author">A könyv szerzője</label>
+            <input type="text" id="author" name="author" placeholder="A könyv szerzője.." class="form-control">
+          </div>
+          <div>
+            <label for="publish_year">A könyv kiadási éve</label>
+            <input type="number" id="publish_year" name="publish_year" placeholder="A könyv kiadási éve.."
+              class="form-control" value="2024">
+          </div>
+          <div>
+            <label for="page_count">A könyv oldalszáma</label>
+            <input type="number" id="page_count" name="page_count" placeholder="A könyv oldalszáma.."
+              class="form-control" value="200">
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" id="addKonyv">Könyv felvétele</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>Készítette: Petrika Roland</p>
+    </footer>
+  </div>
+  <script src="books.js"></script>
+
+</body>
+
+</html>
